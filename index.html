@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brunimales</title>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #badeba;
+      }
+      main {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+      }
+      main > * {
+        flex: 30%;
+      }
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        min-width: 400px;
+        height: 600px;
+        border: 2px solid #badeba;
+        border-radius: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <main></main>
+    <script>
+      const animals = [
+        {
+          name: "Elefante",
+          img: "./img/jeff-mostert-F-21RZmloGA-unsplash.jpg",
+          sfx: "./sfx/cc0_elephant_bellow_002.mp3",
+        },
+        {
+          name: "León",
+          img: "./img/amanda-swanepoel-C3dXE7IDXUc-unsplash.jpg",
+          sfx: "./sfx/animals_lion_growl_001.mp3",
+        },
+        {
+          name: "Oso",
+          img: "./img/joshua-hoehne-f8rvGDHdZ04-unsplash.jpg",
+          sfx: "./sfx/animals_bear_growl_001.mp3",
+        },
+        {
+          name: "Perro",
+          img: "./img/baptist-standaert-mx0DEnfYxic-unsplash.jpg",
+          sfx: "./sfx/ftus_animals_dog_bark_aggressive_242.mp3",
+        },
+        {
+          name: "Gato",
+          img: "./img/alexander-london-mJaD10XeD7w-unsplash.jpg",
+          sfx: "./sfx/Blastwave_FX_CatMeow_SFXB.203.mp3",
+        },
+        {
+          name: "Cóndor",
+          img: "./img/mathew-schwartz-Fiv1bfEOAds-unsplash.jpg",
+          sfx: "./sfx/audio_hero_BirdHawkSingleScre+PE020901.mp3",
+        },
+        {
+          name: "Chancho",
+          img: "./img/bruno-van-der-kraan-nbcQn8KURa4-unsplash.jpg",
+          sfx: "./sfx/animal_pig_tamworth_grunt_angry_002.mp3",
+        },
+        {
+          name: "Gallo",
+          img: "./img/kazi-faiz-ahmed-jeem-hXXncjTJJ1g-unsplash.jpg",
+          sfx: "./sfx/animals_cockrel_crow_001.mp3",
+        },
+      ];
+
+      const container = document.querySelector("main");
+      const buttons = animals.forEach((animal) => {
+        const button = document.createElement("button");
+
+        button.style.backgroundImage = `url(${animal.img})`;
+        button.style.backgroundPosition = 'center';
+        button.style.backgroundSize = 'cover';
+
+        const audio = button.appendChild(document.createElement("audio"));
+        audio.src = animal.sfx;
+
+        button.addEventListener("click", () => {
+          if (!audio.paused) {
+            audio.pause();
+          } else {
+            audio.play();
+          }
+        });
+
+        container.appendChild(button);
+      });
+    </script>
+  </body>
+</html>
