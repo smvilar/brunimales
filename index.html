@@ -16,24 +16,30 @@
       body {
         margin: 0;
         padding: 0;
-        background: #badeba;
+        background: #debade;
       }
       main {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-evenly;
+        padding: 2px;
+        gap: 2px;
       }
       main > * {
-        flex: 30%;
+        flex: 24%;
       }
       button {
         border: none;
         background: none;
         cursor: pointer;
         min-width: 400px;
-        height: 600px;
-        border: 2px solid #badeba;
+        height: 400px;
+        border: 2px solid #debade;
         border-radius: 40px;
+      }
+      button:focus {
+        outline: none;
+        border: 2px solid #5050de;
       }
     </style>
   </head>
@@ -95,11 +101,8 @@
         audio.src = animal.sfx;
 
         button.addEventListener("click", () => {
-          if (!audio.paused) {
-            audio.pause();
-          } else {
-            audio.play();
-          }
+          button.scrollIntoView({ behavior: 'smooth' });
+          audio.play();
         });
 
         container.appendChild(button);
