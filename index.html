@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +36,9 @@
         height: 400px;
         border: 2px solid #debade;
         border-radius: 40px;
+
+        background-position: center;
+        background-size: cover;
       }
       button:focus {
         outline: none;
@@ -87,25 +90,65 @@
           img: "./img/kazi-faiz-ahmed-jeem-hXXncjTJJ1g-unsplash.jpg",
           sfx: "./sfx/animals_cockrel_crow_001.mp3",
         },
+        {
+          name: "Cocodrilo",
+          img: "./img/bianca-castillo-RTOJrQzRDEo-unsplash.jpg",
+          sfx: "./sfx/animals_alligator_growl.mp3",
+        },
+        {
+          name: "Abeja",
+          img: "./img/boris-smokrovic-gr7ZkoZnHXU-unsplash.jpg",
+          sfx: "./sfx/zapsplat_animal_insect_bee_wasp_fly_by_001_40041.mp3",
+        },
+        {
+          name: "Mariposa",
+          img: "./img/daniel-klein-uNNPbsCTksk-unsplash.jpg",
+        },
+        {
+          name: "Serpiente",
+          img: "./img/david-clode-Ws6Tb1cI0co-unsplash.jpg",
+          sfx: "./sfx/Blastwave_FX_SnakeHiss_SEU04.2.mp3",
+        },
+        {
+          name: "Tigre",
+          img: "./img/frida-bredesen-IDO_a-dxrCY-unsplash.jpg",
+          sfx: "./sfx/zapsplat_animals_lion_roar_growl_002_19911.mp3",
+        },
+        {
+          name: "Caballo",
+          img: "./img/helena-lopes-RoTyXO1m0wo-unsplash.jpg",
+          sfx: "./sfx/audio_hero_s-horse-whinny.mp3",
+        },
+        {
+          name: "Oveja",
+          img: "./img/nick-cozier-rxPvcCwpHRw-unsplash.jpg",
+          sfx: "./sfx/animals_sheep_x2_baa.mp3",
+        },
+        {
+          name: "Pato",
+          img: "./img/ross-sokolovski-kCZSzqvIei4-unsplash.jpg",
+          sfx: "./sfx/animal_bird_duck_quack_001.mp3",
+        },
+        {
+          name: "Vaca",
+          img: "./img/skull-kat-M7fi58_dF5k-unsplash.jpg",
+          sfx: "./sfx/animal_bull_scottish_highland_moo_001.mp3",
+        },
       ];
 
       const container = document.querySelector("main");
-      const buttons = animals.forEach((animal) => {
-        const button = document.createElement("button");
-
-        button.style.backgroundImage = `url(${animal.img})`;
-        button.style.backgroundPosition = 'center';
-        button.style.backgroundSize = 'cover';
+      animals.forEach(({ name, img, sfx }) => {
+        const button = container.appendChild(document.createElement("button"));
+        button.style.backgroundImage = `url(${img})`;
+        button.title = name;
 
         const audio = button.appendChild(document.createElement("audio"));
-        audio.src = animal.sfx;
+        audio.src = sfx;
 
         button.addEventListener("click", () => {
-          button.scrollIntoView({ behavior: 'smooth' });
+          button.scrollIntoView({ behavior: "smooth" });
           audio.play();
         });
-
-        container.appendChild(button);
       });
     </script>
   </body>
