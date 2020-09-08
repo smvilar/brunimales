@@ -49,7 +49,7 @@
   <body>
     <main></main>
     <script>
-      const animals = [
+      const ANIMALS = [
         {
           name: "Elefante",
           img: "./img/jeff-mostert-F-21RZmloGA-unsplash.jpg",
@@ -86,9 +86,9 @@
           sfx: "./sfx/animal_pig_tamworth_grunt_angry_002.mp3",
         },
         {
-          name: "Gallo",
-          img: "./img/kazi-faiz-ahmed-jeem-hXXncjTJJ1g-unsplash.jpg",
-          sfx: "./sfx/animals_cockrel_crow_001.mp3",
+          name: "Vaca",
+          img: "./img/skull-kat-M7fi58_dF5k-unsplash.jpg",
+          sfx: "./sfx/animal_bull_scottish_highland_moo_001.mp3",
         },
         {
           name: "Cocodrilo",
@@ -131,14 +131,15 @@
           sfx: "./sfx/animal_bird_duck_quack_001.mp3",
         },
         {
-          name: "Vaca",
-          img: "./img/skull-kat-M7fi58_dF5k-unsplash.jpg",
-          sfx: "./sfx/animal_bull_scottish_highland_moo_001.mp3",
+          name: "Gallo",
+          img: "./img/kazi-faiz-ahmed-jeem-hXXncjTJJ1g-unsplash.jpg",
+          sfx: "./sfx/animals_cockrel_crow_001.mp3",
         },
       ];
 
       const container = document.querySelector("main");
-      animals.forEach(({ name, img, sfx }) => {
+
+      ANIMALS.forEach(({ name, img, sfx }) => {
         const button = container.appendChild(document.createElement("button"));
         button.style.backgroundImage = `url(${img})`;
         button.title = name;
@@ -147,7 +148,7 @@
         audio.src = sfx;
 
         button.addEventListener("click", () => {
-          button.scrollIntoView({ behavior: "smooth" });
+          el.scrollIntoView({ behavior: "smooth", block: "nearest" });
           audio.play();
         });
       });
